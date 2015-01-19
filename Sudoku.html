@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+
+<style type="text/css">
+.boardCell {
+	text-align: center;
+	background-color: red;
+}
+.outerCell {
+	background-color: rgb(220,120,120);
+}
+input {
+	width: 15px;
+	height: 15px;
+}
+input[type="submit"] {
+	font-size: 16px;
+	width: 4em;
+	height: 2em;
+}
+h1 {
+	font-family: Garamond;
+}
+h5 {
+	position: relative;
+	bottom: 15px;
+	font-family: Garamond;
+}
+body {
+	background-color: rgb(200,200,200);
+}
+td {
+	padding: 8px;
+	vertical-align: center;
+	border: 3px solid black;
+	border-color: black;
+}
+table {
+	border-color: black;
+	border-collapse: collapse;
+}
+table tr td table {
+
+}
+</style>
+
+<html>
+	<body>
+		<title>
+			Sudoku Solver
+		</title>
+
+		<h1>
+			Sudoku Solver 
+		</h1>
+		<h5>
+			Input the numbers and press submit!
+		</h5>
+		<div id ="sudokuBoard">
+			<table class=outerCell>
+				<tr>
+					<td>
+						<table>
+							<tr>
+								<td class="boardCell">
+									<div id="00">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="01">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="02">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>	
+							<tr>
+								<td class="boardCell">
+									<div id="10">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="11">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="12">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="boardCell">
+									<div id="20">
+										<input maxlength="1"/>
+									</div>
+								</td>					
+								<td class="boardCell">
+									<div id="21">
+										<input maxlength="1"/>
+									</div>
+								</td>					
+								<td class="boardCell">
+									<div id="22">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>		
+						</table>
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td class="boardCell">
+									<div id="03">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="04">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="05">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="boardCell">
+									<div id="13">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="14">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="15">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="boardCell">
+									<div id="23">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="24">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="25">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td class="boardCell">
+									<div id="06">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="07">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="08">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="boardCell">
+									<div id="16">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="17">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="18">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="boardCell">
+									<div id="26">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="27">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="28">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table>
+							<tr>
+								<td class="boardCell">
+									<div id="30">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="31">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="32">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="boardCell">
+									<div id="40">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="41">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="42">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="boardCell">
+									<div id="50">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="51">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="52">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td class="boardCell">
+									<div id="33">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="34">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="35">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="boardCell">
+									<div id="43">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="44">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="45">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="boardCell">
+									<div id="53">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="54">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="55">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td class="boardCell">
+									<div id="36">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="37">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="38">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="boardCell">
+									<div id="46">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="47">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="48">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="boardCell">
+									<div id="56">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="57">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="58">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table>
+							<tr>
+								<td class="boardCell">
+									<div id="60">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="61">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="62">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="boardCell">
+									<div id="70">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="71">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="72">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="boardCell">
+									<div id="80">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="81">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="82">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td class="boardCell">
+									<div id="63">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="64">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="65">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="boardCell">
+									<div id="73">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="74">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="75">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="boardCell">
+									<div id="83">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="84">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="85">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td class="boardCell">
+									<div id="66">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="67">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="68">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="boardCell">
+									<div id="76">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="77">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="78">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="boardCell">
+									<div id="86">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="87">
+										<input maxlength="1"/>
+									</div>
+								</td>
+								<td class="boardCell">
+									<div id="88">
+										<input maxlength="1"/>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		<div>
+
+		<br>
+			<input type="submit" value="Submit" onClick="processPuzzle();">
+		</br>
+
+		<script>
+			function processPuzzle() {
+				
+			}
+		</script>
+	</body>
+</html>
